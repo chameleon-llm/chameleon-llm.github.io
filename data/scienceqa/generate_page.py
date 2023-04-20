@@ -135,7 +135,8 @@ def generate_message(result):
     answer = normalize(html)
 
     # build the message
-    elements = [question, context, image, choices, program, responses, prediction, answer]
+    elements = [question, context, image, choices, program, prediction, answer]
+    # elements = [question, context, image, choices, program, responses, prediction, answer]
     message = " ".join(elements)
 
     return message
