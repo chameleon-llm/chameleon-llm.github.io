@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <link rel="stylesheet" href="./static/css/index.css">
+    <script src="./static/js/index.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" />
+
+    
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+
+    <title>Chameleon: Plug-and-Play Compositional Reasoning with Large Language Models
+</title>
+  </head>
+  <style>
+
+    .my_red{
+      color: #b9050e;
+    }
+
+    .my_green{
+      color: #13af55;
+    }
+
+    .my_blue{
+      color: #2e60b3;
+    }
+
+          .multicolortext {
+        background-image: linear-gradient(to right, #b9050e, #13af55, #2e60b3);
+        font-weight: 700;
+/*background-image: linear-gradient(to right, red, green, blue);*/
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+
+    body {padding-top: 100px;}
+    /* This text is in Gill Sans */
+    .box{ 
+      width: 12%; 
+      /* height: 100px;  */
+      } 
+    .img-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: left;
+        }
+        .citation {
+            display: block;
+            padding: 9.5px;
+            margin: 0 0 10px;
+            font-size: 13px;
+            line-height: 1.42857143;
+            word-break: break-all;
+            word-wrap: break-word;
+            color: #333;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+.class { 
+	font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; 
+}
+.myhead{
+  background-color:#e9ecef;
+  border-radius: .3rem;
+  margin-bottom: 1rem;
+  padding: 2rem 2rem;
+  margin-top: -1rem;
+}
+
+li {
+  margin-bottom: 10px; /* increase bottom margin of <li> elements by 10px */
+}
+    </style>
+  <body>
+    
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark" id="navbar1" style="background-color: #242582;">
+        <div class="container">
+            <a class="navbar-brand mr-1 mb-1 mt-0" href="../">Chameleon</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#github">Contact Us</a>
+                    </li>                    
+                </ul>
+        </div>
+    </nav>
+    <main>
+    <div class="container">
+      <div class="myhead">
+        <h2 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"><span class="multicolortext">Chameleon</span>: Plug-and-Play Compositional Reasoning with Large Language Models</h2>
+        <p>Pan Lu, Baolin Peng, Hao Cheng, Michel Galley, Kai-Wei Chang, Ying Nian Wu, Song-Chun Zhu, Jianfeng Gao</p>
+        <a class="btn btn-primary" href="https://arxiv.org/abs/2304.09842" role="button" >Paper »</a>        
+        <a class="btn btn-info" href="https://github.com/lupantech/chameleon-llm" role="button">Github »</a>
+        <!-- <a class="btn btn-secondary" href="#" role="button">Demo (Soon) »</a> -->
+
+        
+      </div>
+
+      <div style="text-align: center;">
+        <img src="./images/example.png" alt="a beautiful painting of a llama following the instructions of the AI robot, by studio ghibli, octane render, brilliantly coloured" width="80%">
+        <p style="color:gray; text-align: center;">Examples from our <span class="multicolortext">Chameleon</span> with GPT-4 on ScienceQA, a multi-modal question answering benchmark in scientific domains. <span class="multicolortext">Chameleon</span> is adaptive to different queries by synthesizing programs to compose various tools and executing them sequentially to get final answers.
+        </p>
+      </div>
+
+      <div class="col-md-12" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+
+Discover <span class="multicolortext">Chameleon</span>, our cutting-edge compositional reasoning framework designed to enhance large language models (LLMs) and overcome their inherent limitations, such as outdated information and lack of precise reasoning. By integrating various tools such as vision models, web search engines, Python functions, and rule-based modules, <span class="multicolortext">Chameleon</span> delivers more accurate, up-to-date, and precise responses, making it a game-changer in the natural language processing landscape. With GPT-4 at its core, <span class="multicolortext">Chameleon</span> has showcased exceptional improvements in accuracy on benchmark tasks, outperforming competitors and setting new industry standards. 
+
+        <!-- <h3 class=".display-3">Pre-training-fine-tuning paradigm for building task-oritend dialog systems </h3> -->
+        <!-- <p>Welcome to our website, where we showcase our latest breakthrough in enhancing large language models (LLMs) for advanced problem-solving capabilities. While LLMs have made significant strides in natural language processing, they still face limitations, such as accessing up-to-date information, using external tools, and performing accurate mathematical reasoning. </p>
+
+<p>To overcome these challenges, we've developed a cutting-edge plug-and-play compositional reasoning framework called <span class="multicolortext">Chameleon</span>. This innovative approach combines various tools like LLMs, off-the-shelf vision models, web search engines, Python functions, and rule-based modules to cater to user interests. By building upon an LLM as a natural language planner, our framework intelligently determines the right sequence of tools to execute and generate accurate responses. </p>
+
+<p>Our <span class="multicolortext">Chameleon</span> has demonstrated its adaptability and effectiveness on two tasks: ScienceQA and TabMWP. Impressively, when paired with GPT-4, our <span class="multicolortext">Chameleon</span> achieves 86.54% accuracy on ScienceQA, improving the best published few-shot model by 11.37%. Furthermore, when using GPT-4 as the underlying LLM, our <span class="multicolortext">Chameleon</span> boasts a 17.8% increase in performance over the state-of-the-art model, reaching a remarkable 98.78% overall accuracy on TabMWP. </p>
+ -->
+<!-- <p>Our research indicates that GPT-4, as a planner, shows more consistent and rational tool selection and can infer potential constraints based on instructions, compared to other LLMs like ChatGPT. &nbspWe invite you to explore our work and discover how our framework can revolutionize the way LLMs interact with and solve complex problems. </p> -->
+	
+		
+		
+	<br>
+  <br>
+  
+  <h3 class=".display-3">Significant improvements are observed for <span class="multicolortext">Chameleon</span> over both fine-tuned models and few-shot prompted GPT-4/ChatGPT</h3>  
+	<!-- <h3 class=".display-3">Supervior Performance GPT-4/ChatGPT</h3>	 -->
+	 
+
+
+                 <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <h5 class="card-header">TabMWP</h5>
+                  <div class="card-body">
+                    
+                    <img src="./images/tabqa_bar.png" alt="" width="100%" >
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                  <h5 class="card-header">Science QA</h5>
+                  <div class="card-body">
+                    
+                    <img src="./images/scienceqa_bar.png" alt="" width="100%">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        <br>
+
+        <h3 class=".display-3">What Plan does <span class="multicolortext">Chameleon</span> synthesize?</h3>
+
+          <ul >
+              <li>The GPT-4 planner is capable of making good decisions on how to sequence tools in a few-shot setup.</li>
+              <li>For ScienceQA, GPT-4 often relies on either the knowledge retriever or Bing search, but rarely both.</li>
+              <li>On TabMWP, there are two main modes observed: either going through the solution-executor module or via the program verifier and executor.</li>
+          </ul>
+            
+    
+        
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" style="margin-left: 2px;">
+            <a class="nav-link active" data-toggle="tab" href="#human" role="tab" aria-controls="human" style="background-color:azure;">Science QA</a>
+          </li>
+          <li class="nav-item" style="margin-left: 10px;">
+            <a class="nav-link" data-toggle="tab" href="#gpt4" role="tab" aria-controls="gpt4" style="background-color:azure;">TabMWP</a>
+          </li>
+          <li class="nav-item" style="margin-left: 10px;">
+            <a class="nav-link" data-toggle="tab" href="#unnatural" role="tab" aria-controls="unnatural" style="background-color:azure;">Percentage of Called Tools</a>
+          </li>
+        </ul>
+        
+        <div class="tab-content">
+          <div class="tab-pane active" id="human" role="tabpanel">
+            
+            <br>
+          
+            <div style="text-align: center;">
+              <img src="./images/transition_scienceqa_gpt4.png" alt="" width="60%">
+            </div>
+
+<p style="color:gray; text-align: center;">Transitions between modules in programs generated by <span class="multicolortext">Chameleon</span> (GPT-4) on ScienceQA. START is the start symbol, END is a terminal symbol and the others are non-terminal symbols.
+
+        </p>
+
+            
+            </div>
+          <div class="tab-pane" id="gpt4" role="tabpanel">
+            <br>
+
+          
+                      <br>
+          
+            <div style="text-align: center;">
+              <img src="./images/transition_tabmwp_gpt4.png" alt="" width="60%">
+            </div>
+
+<p style="color:gray; text-align: center;">Transitions between modules in programs generated by <span class="multicolortext">Chameleon</span> (GPT-4) on TabMWPQA. START is the start symbol, END is a terminal symbol and the others are non-terminal symbols.
+
+        </p>
+
+
+          </div>
+          <div class="tab-pane" id="unnatural" role="tabpanel">
+
+            <br>
+
+              <div style="text-align: center;">
+              <img src="./images/tool_call_scienceqa.png" alt="" width="80%">
+              <p style="color:gray; text-align: center;">
+                Tools called in the generated programs from <span class="multicolortext">Chameleon</span> (ChatGPT) and <span class="multicolortext">Chameleon</span> (GPT-4) on ScienceQA
+
+        </p>
+            </div>
+
+            <br>
+
+            <br>
+
+              <div style="text-align: center;">
+              <img src="./images/tool_call_tabmwp.png" alt="" width="80%">
+              <p style="color:gray; text-align: center;">
+                Tools called in the generated programs from <span class="multicolortext">Chameleon</span> (ChatGPT) and <span class="multicolortext">Chameleon</span> (GPT-4) on TabMWP
+
+        </p>
+            </div>
+            
+     
+
+          </div>
+          <!-- <div class="tab-pane" id="settings" role="tabpanel">..4.</div> -->
+        </div>
+        
+      
+
+
+
+
+   
+
+
+    <!-- <h3 class=".display-3">Sample Responses Comparison </h3>
+        <p>
+        
+    </p>
+        
+        <ul class="nav nav-tabs" id="exampleTab" role="tablist">
+          <li class="nav-item" style="margin-left: 2px;">
+            <a class="nav-link active" data-toggle="tab" href="#llamagpt3gpt4" role="tab" aria-controls="human" style="background-color:azure;">LLaMA-GPT-4 vs LLaMA-Alpaca</a>
+          </li>
+          <li class="nav-item" style="margin-left: 10px;">
+            <a class="nav-link" data-toggle="tab" href="#llamagpt4gpt4" role="tab" aria-controls="gpt4" style="background-color:azure;">LLaMA-GPT-4 vs GPT-4</a>
+          </li>
+          
+        </ul>
+        
+        <div class="tab-content">
+          <div class="tab-pane active" id="llamagpt3gpt4" role="tabpanel">
+
+            <br>
+
+                    <select id="llamagpt3gpt4-selector" class="form-control">
+                         <option value="" selected>--Select--</option>
+                        
+                    </select>
+
+                    <br>
+
+                            <div class="card">
+                  <h5 class="card-header">Instructions and Inputs</h5>
+                  <div class="card-body">
+                    <p class="card-text" id="llamagpt3gpt4input"></p>
+                  </div>
+                </div>
+              <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <h5 class="card-header">LLaMA-GPT-4</h5>
+                  <div class="card-body">
+                    
+                    <p class="card-text" id="llamagpt3gpt4left"></p>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                  <h5 class="card-header">LLaMA-GPT-3</h5>
+                  <div class="card-body">
+                    
+                    <p class="card-text" id="llamagpt3gpt4right"></p>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+
+
+   <div class="tab-pane" id="llamagpt4gpt4" role="tabpanel">
+
+            <br>
+
+                    <select id="llamagpt4gpt4-selector" class="form-control">
+                        <option value="" selected>--Select--</option>
+                    </select>
+
+                    <br>
+
+                            <div class="card">
+                  <h5 class="card-header">Instructions and Inputs</h5>
+                  <div class="card-body">
+                    <p class="card-text" id="llamagpt4gpt4input"></p>
+                  </div>
+                </div>
+              <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <h5 class="card-header">LLaMA-GPT-4</h5>
+                  <div class="card-body">
+                    
+                    <p class="card-text" id="llamagpt4gpt4left"></p>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                  <h5 class="card-header">GPT-4</h5>
+                  <div class="card-body">
+                    
+                    <p class="card-text" id="llamagpt4gpt4right"></p>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+
+      </div>
+ -->
+      <br>
+
+       <h3 class=".display-3">Citation</h3>
+    If the paper inspires you and the data is used in your research, please cite us:
+        <pre class="citation">@article{chameleon2023lu,
+  title={Chameleon: Plug-and-Play Compositional Reasoning with Large Language Models},
+  author={Lu, Pan and Peng, Baolin and Cheng, Hao and Galley, Michel and Chang, Kai-Wei and Wu, Ying Nian and Zhu Song-Chun and Gao, Jianfeng},
+  journal={arXiv preprint arXiv:2304.09842},
+  year={2023}
+}
+        </pre>
+
+    </div>
+
+
+
+
+    
+
+
+    <div class="col-md-12" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+
+      <h3 class=".display-3">Release and License</h3>
+      The data is intended solely for research and non-commercial purposes. Its use is subject to the Terms of Use for data generated by OpenAI. If you discover any potential violations, please contact us. Additionally, the code is governed by the Apache License 2.0.
+
+<br>
+
+<br>
+
+    </div>
+
+    <div class="col-md-12" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+
+      <h3 class=".display-3">The Team </h3>
+	    Pan Lu, Baolin Peng, Hao Cheng, Michel Galley, Kai-Wei Chang, Ying Nian Wu, Song-Chun Zhu, Jianfeng Gao
+    </div>
+
+	    
+	    
+	    
+    <div class="col-md-12" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+      <br>
+      <h3 class=".display-3">Acknowledgement </h3>
+      We would like to thank Chunyuan Li, Qiuyuan Huang, and other members of the Deep Learning group at Microsoft Research for their valuable discussions.
+      <br>
+      <br>
+    </div>
+
+    </div>
+    
+    </main>
+
+    <script>
+$(document).ready(function() {
+
+        for (var i = 0; i < 100; i++) {
+          $('#llamagpt3gpt4-selector').append($('<option>', {
+            value: i,
+            text: "Example " + i.toString()
+          }));
+        }
+      });
+
+$(document).ready(function() {
+  $('#llamagpt3gpt4-selector').on('change', function() {
+    var contentId = $(this).val();
+    if (contentId) {
+      $.ajax({
+        url: 'https://pfupbk-8000.csb.app/llamag3g4/' + contentId,
+        type: 'GET',
+        success: function(response) {
+          $('#llamagpt3gpt4input').html(response.instruction);
+          $('#llamagpt3gpt4left').html(response.left);
+          $('#llamagpt3gpt4right').html(response.right);
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+    } else {
+      $('.card-text').text('');
+    }
+  });
+});
+
+
+$(document).ready(function() {
+
+        for (var i = 0; i < 100; i++) {
+          $('#llamagpt4gpt4-selector').append($('<option>', {
+            value: i,
+            text: "Example " + i.toString()
+          }));
+        }
+      });
+
+$(document).ready(function() {
+  $('#llamagpt4gpt4-selector').on('change', function() {
+    var contentId = $(this).val();
+    if (contentId) {
+      $.ajax({
+        url: 'https://pfupbk-8000.csb.app/llamag4g4/' + contentId,
+        type: 'GET',
+        success: function(response) {
+          $('#llamagpt4gpt4input').html(response.instruction);
+          $('#llamagpt4gpt4left').html(response.left);
+          $('#llamagpt4gpt4right').html(response.right);
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+    } else {
+      $('.card-text').text('');
+    }
+  });
+});
+
+
+fetch('file.html')
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(html) {
+      // Insert the HTML content into the <div> element
+      $('#external_html').html(html);
+    })
+    .catch(function(err) {
+      console.error(err);
+    });
+
+</script>
+  </body>
+</html>
