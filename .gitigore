@@ -1,0 +1,8 @@
+local/
+*.zip
+*.idea
+*.vscode
+*.DS_Store
+*.ipynb_checkpoints
+*.pyc
+*__pycache__
