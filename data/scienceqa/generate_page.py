@@ -106,6 +106,25 @@ def generate_message(result):
     responses = normalize(html)
 
 
+    # [5] buttons
+    html = ""
+    modules = result["modules"]
+    # buttons = ", ".join([capitalize_module(module) for module in modules])
+
+    bs = []
+    for module in modules:
+        response = str(result[module]["output"])
+        response = response.replace("\n", "<br>")
+        module = capitalize_module(module)
+        bs.append(f"""
+                    <button class='module-btn'>{module}</button>
+                """)
+
+    buttons = ", ".join(bs)
+
+    
+    buttons = normalize(html)
+
     # [7] prediction
     html = ""
     prediction = result["prediction"]
@@ -135,8 +154,9 @@ def generate_message(result):
     answer = normalize(html)
 
     # build the message
-    elements = [question, context, image, choices, program, prediction, answer]
     # elements = [question, context, image, choices, program, responses, prediction, answer]
+    # elements = [question, context, image, choices, program, prediction, answer]
+    elements = [question, context, image, choices, program_buttons, prediction, answer]
     message = " ".join(elements)
 
     return message

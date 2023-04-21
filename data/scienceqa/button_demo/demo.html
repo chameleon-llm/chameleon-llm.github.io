@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Hover Text</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="button-container">
+        <button class="hover-button" onmouseover="displayText(0)" onmouseout="hideText()">Button 1</button>
+        <button class="hover-button" onmouseover="displayText(1)" onmouseout="hideText()">Button 2</button>
+        <button class="hover-button" onmouseover="displayText(2)" onmouseout="hideText()">Button 3</button>
+    </div>
+
+    <div class="text-container">
+        <p id="text-0" class="hover-text">Text for Button 1</p>
+        <p id="text-1" class="hover-text">Text for Button 2</p>
+        <p id="text-2" class="hover-text">Text for Button 3</p>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

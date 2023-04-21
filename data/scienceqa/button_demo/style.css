@@ -1,0 +1,12 @@
+.hover-text {
+    display: none;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+.hover-button:hover {
+    cursor: pointer;
+}
